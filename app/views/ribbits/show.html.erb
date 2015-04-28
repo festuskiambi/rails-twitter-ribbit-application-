@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @ribbit.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ribbit.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_ribbit_path(@ribbit) %> |
+<%= link_to 'Back', ribbits_path %>
