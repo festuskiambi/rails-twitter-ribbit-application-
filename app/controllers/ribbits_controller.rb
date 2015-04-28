@@ -24,16 +24,15 @@ class RibbitsController < ApplicationController
   # POST /ribbits
   # POST /ribbits.json
   def create
-    @ribbit = Ribbit.new(ribbit_params)
-
-    respond_to do |format|
-      if @ribbit.save
-        format.html { redirect_to @ribbit, notice: 'Ribbit was successfully created.' }
-        format.json { render :show, status: :created, location: @ribbit }
-      else
-        format.html { render :new }
-        format.json { render json: @ribbit.errors, status: :unprocessable_entity }
-      end
+     @ribbit = Ribbit.new(params[:ribbit])
+  @ribbit.userid = current_user.id</p>
+ 
+  if @ribbit.save
+      redirect_to current_user 
+  else
+      flash[:error] = "Problem!"
+      redirect_to current_user
+    
     end
   end
 
